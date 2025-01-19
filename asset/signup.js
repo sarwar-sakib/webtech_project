@@ -126,7 +126,7 @@ function ajaxSignup() {
     xhttp.open("POST", "../controller/signupcheck.php", true);
     xhttp.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
     let info = JSON.stringify(data);
-    xhttp.send(`info=`+info); // Send data as a JSON string
+    xhttp.send("info=" + encodeURIComponent(info)); 
 
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
@@ -141,4 +141,3 @@ function ajaxSignup() {
         }
     };
 }
-

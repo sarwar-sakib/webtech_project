@@ -15,6 +15,22 @@ if (isset($_REQUEST['submit'])) {
             $_SESSION['status'] = true;
             $_SESSION['username'] = $username;
             $_SESSION['user'] = getUserInfo($username);
+
+            // Check account type for advertiser notifications
+            $user = $_SESSION['user'];
+            if ($user['account_type'] == 'advertiser') {
+                $con = getConnection();
+                $checkNotification = "SELECT * FROM notifications WHERE username = '{$username}'";
+                $result = mysqli_query($con, $checkNotification);
+
+                // Add a notification only if none exists
+                if (mysqli_num_rows($result) == 0) {
+                    $notificationMessage = "Welcome to our system! Start by exploring the available newspapers.";
+                    $insertNotification = "INSERT INTO notifications (username, message) VALUES ('{$username}', '{$notificationMessage}')";
+                    mysqli_query($con, $insertNotification);
+                }
+            }
+
             echo "success";
         } else {
             echo "invalid";

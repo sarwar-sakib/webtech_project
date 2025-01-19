@@ -168,6 +168,17 @@
     }
     
     
-
-
+    function addNotification($recipient, $message) {
+        $con = getConnection();
+        $sql = "INSERT INTO notifications (username, message, created_at) VALUES ('$recipient', '$message', NOW())";
+        mysqli_query($con, $sql);
+    }
+    
+function addNotificationNewUser($username){
+    $con = getConnection();
+            $message = "New user registered: {$username}";
+            $created_at = date('Y-m-d H:i:s');
+            $notification_query = "INSERT INTO notifications (message, username, created_at) VALUES ('{$message}', NULL, '{$created_at}')";
+            mysqli_query($con, $notification_query);
+}
 ?>

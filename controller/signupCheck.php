@@ -34,12 +34,16 @@ if (isset($data['submit'])) {
     } else {
         $status = addUser($username, $email, $password, $account_type, $question, $answer);
         if ($status) {
+            addNotificationNewUser( $username); 
             echo "success";
         } else {
             echo "Failed to register user. Try again.";
         }
     }
-} else {
+    
+} 
+
+else {
     echo "Invalid request";
 }
 
@@ -49,4 +53,3 @@ function isValidEmail($email) {
     }
     return false;
 }
-?>
