@@ -13,7 +13,7 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'true') {
     exit;
 }
 
-//Hii
+//Hii hey
 
 // Fetch all newspapers from the database
 $newspapers = getAllNewspapers();
