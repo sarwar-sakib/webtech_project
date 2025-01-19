@@ -1,9 +1,12 @@
 <?php
 session_start();
-require_once('../model/payoutModel.php');
 
-if (isset($_POST['request_payout'])) {
-    header('Location: ../view/requestPayoutForm.php');
+if (!isset($_SESSION['status'])) {
+    header('location: ../view/login.html');
     exit();
 }
+
+// Redirect to the request payout form.
+header('Location: ../view/requestPayoutForm.php');
+exit();
 ?>

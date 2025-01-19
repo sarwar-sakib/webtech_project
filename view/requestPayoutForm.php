@@ -1,46 +1,52 @@
-<html>
-<head>
-    <title>Request Payout</title>
-    <script>
-        function submitPayoutRequest(event) {
-            event.preventDefault(); // Prevent the form from reloading the page
+<?php
+session_start();
+header('Content-Type: text/html'); 
 
-            const amount = document.getElementById('amount').value;
+if (!isset($_SESSION['status'])) {
+    echo "<p style='color: red;'>Unauthorized access. Please log in.</p>";
+    exit();
+}
 
-            // Perform an AJAX request
-            fetch('../view/requestPayoutForm.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: new URLSearchParams({ amount: amount }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Display feedback to the user
-                const messageElement = document.getElementById('message');
-                if (data.status === 'success') {
-                    messageElement.style.color = 'green';
-                } else {
-                    messageElement.style.color = 'red';
-                }
-                messageElement.textContent = data.message;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred while processing your request.');
-            });
+require_once('../model/payoutModel.php');
+
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $amount = intval($_POST['amount'] ?? 0);
+    $userId = $_SESSION['user']['id'] ?? null;
+
+    if ($amount >= 100 && $userId) { 
+        if (requestPayout($userId, $amount)) {
+            echo "<script>
+                    window.onload = function() {
+                        alert('Success');
+                        window.location.href = 'payout.php'; // Redirect to payout.php after alert
+                    }
+                  </script>";
+            exit();
+        } else {
+            echo "<p style='color: red;'>Failed to submit payout request. Please try again.</p>";
         }
-    </script>
+    } else {
+        echo "<p style='color: red;'>Invalid amount. Please enter a value greater than or equal to 100.</p>";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Payout</title>
 </head>
 <body>
     <h2>Request Payout</h2>
-    <div id="message"></div>
-    <form onsubmit="submitPayoutRequest(event)">
-        <label for="amount">Amount:</label>
-        <input type="number" name="amount" id="amount" required>
+    <form method="POST" action="">
+        <label for="amount">Enter Amount:</label>
+        <input type="number" id="amount" name="amount" min="100" required>
         <button type="submit">Submit</button>
     </form>
+    <br>
     <a href="payout.php">Back</a>
 </body>
 </html>

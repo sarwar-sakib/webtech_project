@@ -15,14 +15,12 @@ function getAllPayouts() {
     return $payouts;
 }
 
-
-//specific user
 function getPayoutHistoryByUser($user_id) {
     $con = getConnection();
     $sql = "SELECT p.id, p.amount, p.status, u.username
             FROM payouts p
             JOIN users u ON p.user_id = u.id
-            WHERE p.user_id = '$user_id'";  
+            WHERE p.user_id = '$user_id'";
     $result = mysqli_query($con, $sql);
 
     $payouts = [];
@@ -34,11 +32,8 @@ function getPayoutHistoryByUser($user_id) {
 
 function approvePayout($payout_id) {
     $con = getConnection();
-    $sql = "UPDATE payouts SET status = 'completed' WHERE id = $payout_id";
-    if(mysqli_query($con, $sql))
-        return true;
-    else
-        return false;
+    $sql = "UPDATE payouts SET status = 'approved' WHERE id = $payout_id";
+    return mysqli_query($con, $sql);
 }
 
 function requestPayout($user_id, $amount) {
@@ -46,6 +41,4 @@ function requestPayout($user_id, $amount) {
     $sql = "INSERT INTO payouts (user_id, amount, status) VALUES ('$user_id', '$amount', 'pending')";
     return mysqli_query($con, $sql);
 }
-
-
 ?>

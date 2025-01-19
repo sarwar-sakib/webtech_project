@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('../model/payoutModel.php');
+
 if (!isset($_SESSION['status'])) {
     header('location: login.html');
     exit();
@@ -9,7 +10,7 @@ if (!isset($_SESSION['status'])) {
 $user_id = $_SESSION['user']['id'];
 $account_type = $_SESSION['user']['account_type'];
 
-if ($account_type == 'admin') {
+if ($account_type === 'admin') {
     $payouts = getAllPayouts();
 } else {
     $payouts = getPayoutHistoryByUser($user_id);
@@ -19,6 +20,8 @@ if ($account_type == 'admin') {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="../asset/payoutHistory.css">
+
     <title>Payout History</title>
 </head>
 <body>
@@ -30,7 +33,7 @@ if ($account_type == 'admin') {
             <th>Username</th>
             <th>Amount</th>
             <th>Status</th>
-            <?php if ($account_type == 'admin') { ?>
+            <?php if ($account_type === 'admin') { ?>
                 <th>Action</th>
             <?php } ?>
         </tr>
@@ -40,7 +43,7 @@ if ($account_type == 'admin') {
                 <td><?= $payout['username'] ?></td>
                 <td><?= $payout['amount'] ?></td>
                 <td><?= $payout['status'] ?></td>
-                <?php if ($account_type == 'admin' && $payout['status'] == 'pending') { ?>
+                <?php if ($account_type === 'admin' && $payout['status'] === 'pending') { ?>
                     <td>
                         <form method="post" action="../controller/approvePayoutHandler.php">
                             <input type="hidden" name="payout_id" value="<?= $payout['id'] ?>">

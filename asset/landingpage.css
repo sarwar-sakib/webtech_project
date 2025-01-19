@@ -2,8 +2,8 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #f4f4f4; /* Fixed a small typo in the background color */
-    color: #333; /* Darker text color for better contrast */
+    background-color: #f4f4f4; 
+    color: #333; 
 }
 
 /* Header styling */
@@ -12,26 +12,26 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: #3a9016; /* Softer blue color for header */
+    background-color: #0067ce; 
     color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
 }
 
 #company-name h1 {
     font-size: 36px;
-    font-weight: 600; /* Bold font for company name */
+    font-weight: 600; 
 }
 
 /* Navigation buttons styling */
 #nav-buttons {
     display: flex;
-    gap: 30px; /* Slightly smaller gap between buttons */
+    gap: 30px;
 }
 
 /* Button styling */
 #nav-buttons .button, #extra-buttons .button {
     background-color: #ffffff;
-    color: #3d0a45; /* Dark purple for text */
+    color: #3d0a45; 
     border: 2px solid #3d0a45;
     padding: 12px 25px;
     border-radius: 40px; /* Rounded corners */
@@ -47,31 +47,31 @@ body {
 
 /* Hover and active states for buttons */
 #nav-buttons .button:hover, #extra-buttons .button:hover {
-    background-color: #3d0a45; /* Dark purple background */
+    background-color: #3d0a45; 
     color: white;
-    transform: translateY(-3px); /* Slight lift effect */
+    transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 #nav-buttons .button:active, #extra-buttons .button:active {
-    transform: translateY(1px); /* Slight push effect */
+    transform: translateY(1px); 
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Main content styling */
 #main-content {
     display: flex;
-    flex-direction: row; /* Aligns content horizontally */
+    flex-direction: row; 
     justify-content: space-between;
     align-items: center;
-    height: calc(100vh - 100px); /* Increased height adjustment for better layout */
+    height: calc(100vh - 100px); 
     text-align: center;
     padding: 20px;
 }
 
 /* Landing heading styling */
 #landing-heading {
-    color: #3d0a45; /* Matching dark purple color for consistency */
+    color: #3d0a45; 
     font-size: 42px;
     margin-bottom: 20px;
     font-weight: 600;
@@ -81,7 +81,7 @@ body {
 #welcome-text {
     color: #666;
     font-size: 20px;
-    line-height: 1.6; /* Better readability */
+    line-height: 1.6; 
     margin-bottom: 30px;
 }
 
@@ -89,19 +89,19 @@ body {
 #extra-buttons {
     margin-top: 30px;
     display: flex;
-    flex-direction: column; /* Arrange buttons vertically */
-    gap: 20px; /* Adjust the space between the buttons */
-    align-items: flex-start; /* Align buttons to the left */
-    margin-left: 30px; /* Add margin to move buttons away from the edge */
+    flex-direction: column; 
+    gap: 20px; 
+    align-items: flex-start; 
+    margin-left: 30px; 
 }
 
 /* Right-side image section */
 #image-section {
-    margin-left: 20px; /* Add some space between text and image */
+    margin-left: 20px; 
 }
 
 #landing-image {
-    width: 550px; /* Adjust the width of the image */
+    width: 550px; 
     height: auto;
     border-radius: 15px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -109,16 +109,16 @@ body {
 
 /* How It Works Section */
 #how-it-works {
-    padding: 50px 20px; /* Add padding for spacing */
-    background-color: #f4f4f4; /* Light gray background to separate the section */
+    padding: 50px 20px; 
+    background-color: #f4f4f4; 
     text-align: center;
-    border-top: 2px solid #ddd; /* Subtle divider */
+    border-top: 2px solid #ddd; 
     border-bottom: 2px solid #ddd;
 }
 
 #how-it-works h2 {
     font-size: 32px;
-    color: #3d0a45; /* Dark purple for heading */
+    color: #3d0a45; 
     margin-bottom: 30px;
     font-weight: 700; /* Bold heading */
 }
@@ -208,30 +208,30 @@ body {
 }
 
 .benefit:hover {
-    transform: translateY(-5px); /* Slight lift effect on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .benefit-image {
-    width: 80px; /* Adjust image size */
+    width: 80px; 
     height: auto;
     margin-bottom: 15px;
-    border-radius: 50%; /* Circular images for a professional look */
+    border-radius: 50%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .benefit h3 {
     font-size: 18px;
-    color: #3d0a45; /* Dark purple for title */
+    color: #3d0a45; 
     margin-bottom: 10px;
-    font-weight: 600; /* Semi-bold title */
+    font-weight: 600; 
 }
 
 .benefit p {
     font-size: 14px;
-    color: #666; /* Gray for description text */
-    line-height: 1.5; /* Improved readability */
-    margin: 0; /* Remove default margin */
+    color: #666; 
+    line-height: 1.5;
+    margin: 0; 
 }
 
 /* Responsive styling for smaller screens */
@@ -296,18 +296,18 @@ body {
 
 .demo-ads-text h3 {
     font-size: 24px;
-    color: #3d0a45; /* Dark purple for section title */
+    color: #3d0a45;
     margin-bottom: 20px;
-    font-weight: 600; /* Semi-bold title */
+    font-weight: 600; 
 }
 
 .text-ad {
-    background-color: #e6f7ff; /* Light blue background for text ads */
+    background-color: #e6f7ff; 
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     margin-bottom: 20px;
-    transition: all 0.3s ease; /* Smooth hover effect */
+    transition: all 0.3s ease; 
 }
 
 .text-ad:hover {

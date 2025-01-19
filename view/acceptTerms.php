@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 if (!isset($_SESSION['status'])) {
@@ -15,9 +14,9 @@ function acceptUserTerms($user_id) {
     return mysqli_query($con, $sql);
 }
 
-function getUserInfo($username){
+function getUserInfo($username) {
     $con = getConnection();
-    $sql = "select * from users where username='{$username}'";
+    $sql = "SELECT * FROM users WHERE username='{$username}'";
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_assoc($result);
     return $row;
@@ -27,7 +26,10 @@ if (isset($_POST['accept_terms'])) {
     $user_id = $_SESSION['user']['id'];
     if (acceptUserTerms($user_id)) {
         $_SESSION['user'] = getUserInfo($_SESSION['user']['username']);
-        header('Location: accepted.html');
+        echo "<script>
+                alert('Thanks for accepting Terms and Conditions');
+                window.location.href = 'home.php'; // Redirect to home.php after alert
+              </script>";
         exit();
     } else {
         echo "Error accepting terms.";

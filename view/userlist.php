@@ -13,6 +13,7 @@
 
 <html lang="en">
 <head>
+<link rel="stylesheet" href="../asset/userlist.css">
     <title>Userlist </title>
 
 </head>
@@ -42,7 +43,7 @@
                 <td id="user-account-type-<?= $userId ?>"><?= $users[$i]['account_type'] ?></td>
                 <td id="user-actions-<?= $userId ?>">
                     <a href="edit.php?id=<?= $userId ?>" id="edit-link-<?= $userId ?>"> EDIT </a> |
-                    <a href="delete.php?id=<?= $userId ?>" id="delete-link-<?= $userId ?>"> DELETE </a> 
+                    <a href="deleteUser.php?id=<?= $userId ?>" id="delete-link-<?= $userId ?>"> DELETE </a> 
                     <?php $_SESSION['requested_from'] = basename($_SERVER['PHP_SELF']); ?>
                 </td>  
             </tr>

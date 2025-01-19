@@ -88,25 +88,25 @@
             xhttp.send(info);
 
             xhttp.onreadystatechange = function () {
-    if (this.readyState === 4) {
-        try {
-            const response = JSON.parse(this.responseText);
-            alert(response.message); // Display the message to the user
+                if (this.readyState === 4) {
+                    try {
+                        const response = JSON.parse(this.responseText);
+                        alert(response.message); // Display the message to the user
 
-            if (response.status === 'success') {
-                window.location.href = '../view/userlist.php'; // Redirect on success
-            }
-        } catch (e) {
-            alert("Error parsing server response. Please try again later.");
-            console.error("Invalid JSON response:", this.responseText);
-        }
-    }
-};
-
+                        if (response.status === 'success') {
+                            window.location.href = '../view/userlist.php'; // Redirect on success
+                        }
+                    } catch (e) {
+                        alert("Error parsing server response. Please try again later.");
+                        console.error("Invalid JSON response:", this.responseText);
+                    }
+                }
+            };
         }
     </script>
 </head>
 <body>
+<link rel="stylesheet" href="../asset/adduser.css">
     <h2>Add User</h2>
     <form method="post" action="javascript:void(0);" onsubmit="submitForm(event)">
         <table border="1" cellspacing="0">
@@ -114,21 +114,18 @@
                 <td>Username:</td>
                 <td>
                     <input type="text" name="username" onkeyup="validateUsername()" required>
-                    <span id="usernameError" style="color: red;"></span>
                 </td>
             </tr>
             <tr>
                 <td>Email:</td>
                 <td>
                     <input type="email" name="email" onkeyup="validateEmail()" required>
-                    <span id="emailError" style="color: red;"></span>
                 </td>
             </tr>
             <tr>
                 <td>Password:</td>
                 <td>
                     <input type="password" name="password" onkeyup="validatePassword()" required>
-                    <span id="passwordError" style="color: red;"></span>
                 </td>
             </tr>
             <tr>
@@ -142,6 +139,11 @@
                 </td>
             </tr>
         </table>
+        <div style="color: red;">
+            <span id="usernameError"></span><br>
+            <span id="emailError"></span><br>
+            <span id="passwordError"></span>
+        </div>
         <hr>
         <input type="submit" name="submit" value="Add User">
     </form>

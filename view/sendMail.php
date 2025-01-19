@@ -1,3 +1,23 @@
+<?php
+session_start();
+require_once('../model/userModel.php'); 
+// Fetch all users from the database
+$users = getAllUsers(); 
+
+function getAllUsers() {
+    $con = getConnection();  
+    $sql = "SELECT id, username, account_type FROM users"; 
+    $result = mysqli_query($con, $sql);
+
+    $users = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $users[] = $row;
+    }
+
+    return $users;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,25 +25,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Send Mail</title>
     <script>
-    // Function to validate receiver_id to accept only numeric values
+    
     function validateReceiverId() {
         const receiverIdInput = document.querySelector('input[name="receiver_id"]');
         const errorMessage = document.querySelector('#receiver-id-error');
         
-        // Check if the value is a valid number
         if (!/^\d+$/.test(receiverIdInput.value)) {
-            errorMessage.style.display = 'block';  // Show error message
-            receiverIdInput.style.borderColor = 'red';  // Change border color to red
+            errorMessage.style.display = 'block';  
+            receiverIdInput.style.borderColor = 'red';  
         } else {
-            errorMessage.style.display = 'none';  // Hide error message
-            receiverIdInput.style.borderColor = '';  // Reset border color
+            errorMessage.style.display = 'none';  
+            receiverIdInput.style.borderColor = '';  
         }
     }
 
-    // Function to send mail via AJAX
+    
     function sendMail(event) {
-        event.preventDefault(); // Prevent default form submission
-
+        event.preventDefault(); 
         const receiverId = document.querySelector('input[name="receiver_id"]').value;
         const message = document.querySelector('textarea[name="message"]').value;
 
@@ -58,13 +76,35 @@
             }
         };
 
-        // Send data as URL parameters
+   
         xhttp.send(new URLSearchParams(formData).toString());
     }
-</script>
+
+    </script>
 </head>
 <body>
+
+<link rel="stylesheet" href="../asset/payoutHistory.css">
     <h1>Send Mail</h1>
+
+    <!-- Display users table -->
+    <h2>Users List</h2>
+    <table border="1" cellspacing="0" cellpadding="5">
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Account Type</th> <!-- New column for account type -->
+        </tr>
+        <?php foreach ($users as $user) { ?>
+            <tr>
+                <td><?= $user['id'] ?></td>
+                <td><?= $user['username'] ?></td>
+                <td><?= $user['account_type'] ?></td> <!-- Display account type -->
+            </tr>
+        <?php } ?>
+    </table>
+
+    <!-- Send Mail Form -->
     <form onsubmit="sendMail(event)">
         <label for="receiver_id">Receiver ID:</label>
         <input type="text" name="receiver_id" required onkeyup="validateReceiverId()"><br><br>
@@ -78,5 +118,6 @@
 
     <br>
     <a href="mailbox.php">Back to Mailbox</a>
+
 </body>
 </html>
