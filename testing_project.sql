@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2025 at 10:10 AM
+-- Generation Time: Jan 19, 2025 at 08:46 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -174,7 +174,9 @@ CREATE TABLE `mails` (
 --
 
 INSERT INTO `mails` (`id`, `sender_id`, `receiver_id`, `message`, `timestamp`) VALUES
-(48, 6, 6, 'hiui', '2025-01-19 07:03:06');
+(49, 6, 3, 'accept my payout', '2025-01-19 17:52:37'),
+(51, 3, 6, 'you payout approved', '2025-01-19 18:00:00'),
+(52, 6, 5, 'hi', '2025-01-19 18:45:32');
 
 -- --------------------------------------------------------
 
@@ -220,9 +222,23 @@ CREATE TABLE `payouts` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `amount` decimal(10,2) NOT NULL,
-  `status` enum('pending','complete') DEFAULT 'pending',
+  `status` enum('pending','complete','approved') DEFAULT 'pending',
   `request_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `payouts`
+--
+
+INSERT INTO `payouts` (`id`, `user_id`, `amount`, `status`, `request_date`) VALUES
+(13, 6, 999.00, 'approved', '2025-01-19 16:46:08'),
+(14, 6, 120.00, 'approved', '2025-01-19 16:48:20'),
+(15, 6, 980.00, 'approved', '2025-01-19 16:48:43'),
+(16, 6, 850.00, 'approved', '2025-01-19 16:59:33'),
+(17, 6, 300.00, 'approved', '2025-01-19 17:47:45'),
+(18, 6, 200.00, 'approved', '2025-01-19 17:47:48'),
+(19, 6, 500.00, 'approved', '2025-01-19 18:43:59'),
+(20, 6, 120.00, 'pending', '2025-01-19 19:11:27');
 
 -- --------------------------------------------------------
 
@@ -270,7 +286,8 @@ CREATE TABLE `system_settings` (
 
 INSERT INTO `system_settings` (`id`, `username`, `time_format`) VALUES
 (7, 'rono', '24h'),
-(8, 'type', '24h');
+(8, 'type', '24h'),
+(9, 'rafin', '24h');
 
 -- --------------------------------------------------------
 
@@ -289,7 +306,7 @@ CREATE TABLE `terms_conditions` (
 --
 
 INSERT INTO `terms_conditions` (`id`, `content`, `updated_at`) VALUES
-(1, 'Welcome to our platform. By using our services, you agree to abide by the following terms and conditions:\r\n1. Users must provide accurate and up-to-date information.\r\n2. Unauthorized use of the platform is strictly prohibited.\r\n3. The platform reserves the right to modify these terms at any time.\r\n4. For any disputes, our decision will be final and binding.\r\n5.New terms added.\r\n6. Terms new check\r\n7. 7th terms\r\n8. Test', '2025-01-18 13:13:21');
+(1, 'Welcome to our platform. By using our services, you agree to abide by the following terms and conditions:\n1. Users must provide accurate and up-to-date information.\n2. Unauthorized use of the platform is strictly prohibited.\n3. The platform reserves the right to modify these terms at any time.\n4. For any disputes, our decision will be final and binding.\n5.New terms added.\n9. payment should be clear in time', '2025-01-19 19:07:20');
 
 -- --------------------------------------------------------
 
@@ -363,10 +380,10 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `account_type`, `que
 (3, 'rafin', 'rafin@aiub.edu', 'rafin', 'admin', 'favorite number?', '7', 2200, 1),
 (5, 'abrar', 'abrar@aiub.edu', 'abrar', 'webmaster', 'favorite animal?', 'tiger', 0, 0),
 (6, 'rono', 'rono@aiub.edu', 'rono', 'advertiser', 'favorite superhero?', 'batman', 800, 1),
-(9, 'test', '1@aiub.edu', 'test', 'webmaster', '1', '1', 0, 0),
-(10, 'user', 'hhh@h.com', '1234', 'advertiser', 'What is your favorite color?', 'Blue', 0, 0),
-(11, 'gg', 'hhh@h.com', '1234', 'advertiser', 'What is your favorite color?', 'Blue', 0, 0),
-(12, 'type', 'type@gmail.com', '1234', 'advertiser', 'what?', 'batman', 0, 1);
+(10, 'user', 'user@gmail.com', '1234', 'advertiser', 'What is your favorite color?', 'Blue', 0, 0),
+(13, 'jhon', 'jhon@gmail.com', '1234', 'advertiser', 'What color?', 'Blue', 0, 0),
+(14, 'absar', 'absar@gmail.com', '1234', 'advertiser', 'what?', 'red', 0, 1),
+(15, 'jack', 'jack@gmail.com', 'jack', 'webmaster', 'what?', 'jack', 0, 1);
 
 --
 -- Indexes for dumped tables
@@ -493,7 +510,7 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `mails`
 --
 ALTER TABLE `mails`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `newspapers`
@@ -511,7 +528,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `payouts`
 --
 ALTER TABLE `payouts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `submitted_ads`
@@ -523,7 +540,7 @@ ALTER TABLE `submitted_ads`
 -- AUTO_INCREMENT for table `system_settings`
 --
 ALTER TABLE `system_settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `terms_conditions`
@@ -547,7 +564,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables

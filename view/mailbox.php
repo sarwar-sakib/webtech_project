@@ -1,5 +1,7 @@
 <?php
+
 session_start();
+require_once '../model/userModel.php';
 if (!isset($_SESSION['status'])) {
     header('location: login.html');
     exit();
@@ -12,6 +14,9 @@ if (!isset($_SESSION['status'])) {
     <title>Mailbox</title>
 </head>
 <body>
+    <main>
+
+    <?php includeTopBar(); ?>
     <h1>Mailbox</h1>
     <a href="sendMail.php">
         <button>Send Mail</button>
@@ -22,5 +27,9 @@ if (!isset($_SESSION['status'])) {
     <a href="home.php">
         <button>Back</button>
     </a>
+
+    </main>
+
+            <?php includeBottomBar(); ?>
 </body>
 </html>

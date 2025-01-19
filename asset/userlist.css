@@ -1,0 +1,72 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 20px;
+}
+
+/* Main heading */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Back and Logout Links */
+#back-link, #logout-link {
+    text-decoration: none;
+    color: #007bff;
+}
+
+#back-link:hover, #logout-link:hover {
+    text-decoration: underline;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#add-user-link:hover {
+    background-color: #218838;
+}
+
+/* Table header */
+#table-header {
+    background-color: #007bff;
+    color: white;
+}
+
+#header-id, #header-username, #header-email, #header-account-type, #header-action {
+    padding: 10px;
+}
+
+/* Styling for the body */
+#userlist-body {
+    font-family: Arial, sans-serif;
+}
+
+/* Add padding and shadow around the userlist */
+#userlist-body {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

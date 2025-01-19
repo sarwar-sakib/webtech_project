@@ -13,9 +13,11 @@ $mails = getMails($_SESSION['user']['id']);
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <title>View Mail</title>
 </head>
 <body>
+<link rel="stylesheet" href="../asset/payoutHistory.css">
     <h1>Received Mails</h1>
     <table border="1" cellspacing="0" cellpadding="5">
         <thead>
