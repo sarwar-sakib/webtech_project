@@ -1,13 +1,14 @@
 <html>
 <head>
     <title>Sign Up</title>
+    <link rel="stylesheet" href="../asset/signup.css">
 </head>
-<body align="center">
+<body>
     <fieldset>
         <legend>Sign Up</legend>
         <h2>Sign Up</h2>
         <form id="signupForm" onsubmit="return false;">
-            <table align="center">
+            <table>
                 <tr>
                     <td>Username:</td>
                     <td><input type="text" id="username" name="username" onkeyup="validateUsername()" /></td>
@@ -56,7 +57,7 @@
                 </tr>
                 <tr>
                     <td colspan="3" align="center">
-                        <input type="button" name="submit" value="Submit" onclick="ajaxSignup()" />
+                        <br><input type="button" name="submit" value="Submit" onclick="ajaxSignup()" />
                     </td>
                 </tr>
             </table>
