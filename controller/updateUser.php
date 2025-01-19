@@ -27,7 +27,13 @@
         else {
             $status = updateUser($_SESSION['update_id'], $username, $email, $password, $account_type);
             if ($status) {
-                echo '<script>window.location.href = "../view/userlist.php";</script>';
+                $_SESSION['user'] = getUser($_SESSION['user']['id']);
+                if($_SESSION['requested_from']=="home.php"){
+                    echo '<script>window.location.href = "../view/home.php";</script>';
+                }
+                else{
+                    echo '<script>window.location.href = "../view/userlist.php";</script>';
+                }
                 unset($_SESSION['update_id']);
             } else {
                 echo "An error occurred";

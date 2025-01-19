@@ -56,17 +56,8 @@
                         <?php } ?>
                     </td>
                 </tr>
-                <tr>
                     <td colspan="2" align="center">
-                        <br>
-                        <b>
-                            Update will take affect after relogging in.
-                        </b>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
-                        <input type="submit" name="submit" value="Submit" />
+                        <br><input type="submit" name="submit" value="Submit" />
                     </td>
                 </tr>
             </table>
