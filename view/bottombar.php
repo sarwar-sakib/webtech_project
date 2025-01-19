@@ -40,9 +40,9 @@ function renderBottomBar()
 
     <div class="bottom-bar">
         <p><b>AdVerse Studio</b></p>
-        <a href="about.php">About Us</a> | 
-        <a href="terms.php">Terms and Conditions</a> | 
-        <a href="privacy.php">Privacy Policy</a>
+        <a href="about.html">About Us</a> | 
+        <a href="terms.html">Terms and Conditions</a> | 
+        <a href="privacy.html">Privacy Policy</a>
         <p>contact@adverse.com | Helpline: +880 1712-345678</p>
         <p>© 2025 AdVerse Studio</p>
     </div>
