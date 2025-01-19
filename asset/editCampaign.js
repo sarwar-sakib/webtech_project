@@ -32,18 +32,12 @@ function validateWebsiteUrl() {
     const websiteUrl = document.getElementById("websiteUrl").value.trim();
     const message = document.getElementById("websiteUrlMessage");
 
-    const isValid = /^[a-zA-Z0-9\-\.]+(\:[0-9]+)?(\/[^\s]*)?$/.test(websiteUrl);
+    const isValid = /^(https?:\/\/)[a-zA-Z0-9\-\.]+(\:[0-9]+)?(\/[^\s]*)?$/.test(websiteUrl);
 
     if (websiteUrl === "") {
         message.innerHTML = "Optional";
         message.style.color = "green";
         return true;
-    }
-
-    else if (!websiteUrl.startsWith("http://") || !websiteUrl.startsWith("https://")) {
-        message.innerHTML = "URL must start with http:// or https://";
-        message.style.color = "red";
-        return false;
     }
 
     else if (!isValid) {
@@ -124,5 +118,5 @@ function ajaxUpdateCampaign() {
                 alert(response);
             }
         }
-    };
+    }
 }

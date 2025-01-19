@@ -41,7 +41,7 @@ $_SESSION['campaign_update_id'] = $_REQUEST['campaign_id'];
                 <tr>
                     <td align="left"><b>URL</b></td>
                     <td>
-                        <input type="text" id="websiteUrl" name="website_url" placeholder="http://www.example.com" value="http://<?=$campaign['website_url']?>" onkeyup="validateWebsiteUrl()" />
+                        <input type="text" id="websiteUrl" name="website_url" placeholder="http://www.example.com" value="<?=$campaign['website_url']?>" onkeyup="validateWebsiteUrl()" />
                     </td>
                     <td><p id="websiteUrlMessage"></p></td>
                 </tr>
