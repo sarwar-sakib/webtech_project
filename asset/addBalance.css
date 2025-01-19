@@ -1,0 +1,162 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            width: 400px;
+            margin: auto;
+            padding: 50px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+        }body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            width: 400px;
+            margin: auto;
+            padding: 50px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 90%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="radio"] {
+            width: auto;
+        }
+
+        .operator {
+            display: inline-block;
+            margin-right: 15px;
+            text-align: center;
+        }
+
+        .operator img:hover {
+            background-color: rgb(191, 191, 191);
+            width: 150px;
+            height: 100px;
+        }
+
+        .operator img {
+            width: 150px;
+            height: 100px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        .hint {
+            font-size: 12px;
+            color: gray;
+        }
+
+        .hidden {
+            display: none;
+        }
+        div {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 90%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="radio"] {
+            width: auto;
+        }
+        .operator {
+            display: inline-block;
+            margin-right: 15px;
+            text-align: center;
+        }
+        .operator img:hover {
+            background-color: rgb(191, 191, 191);
+            width: 150px;
+            height: 100px;
+        }
+        .operator img {
+            width: 150px;
+            height: 100px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            
+        
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+            
+        }
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+        .hint {
+            font-size: 12px;
+            color: gray;
+        }
+        .hidden {
+            display: none;
+        }

@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body align="center">
+    <fieldset>
+        <legend>Login</legend>
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="return false;">
+            <table align="center">
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input type="text" id="username" name="username" onkeyup="validateUsername()" />
+                    </td>
+                    <td>
+                        <p id="usernameMessage"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                        <input type="password" id="password" name="password" onkeyup="validatePassword()" />
+                    </td>
+                    <td>
+                        <p id="passwordMessage"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="center">
+                        <input type="button" name="submit" value="Submit" onclick="ajaxLogin()" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <a href="signup.html">Sign Up</a> | 
+        <a href="forgot_password.html">Forgot Password?</a>
+    </fieldset>
+    <script src="../asset/login.js"></script>
+</body>
+</html>

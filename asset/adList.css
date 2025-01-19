@@ -1,0 +1,91 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 20px;
+}
+
+
+
+/* Main container */
+main {
+    margin: 50px 20px 20px 20px;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+img {
+    max-width: 300px;
+    height: auto;
+}
+
+/* Button links in actions */
+.actions a {
+padding: 5px 10px;
+color: white;
+border-radius: 4px;
+font-size: 12px;
+text-decoration: none;
+}
+
+.actions a.delete {
+background-color: #dc3545; /* Red for delete */
+}
+
+.actions a.delete:hover {
+background-color: #a71d2a;
+}
+
+.actions a.pay {
+background-color: #28a745; /* Green for pay */
+}
+
+.actions a.pay:hover {
+background-color: #218838;
+}
+
+.actions a.update {
+background-color: #007bff; /* Blue for update */
+}
+
+.actions a.update:hover {
+background-color: #0056b3;
+}
