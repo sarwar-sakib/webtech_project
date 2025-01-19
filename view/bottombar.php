@@ -6,7 +6,7 @@ function renderBottomBar()
         /* Styling for the bottom bar */
         .bottom-bar {
             width: 100%;
-            background-color: #1c68f5; /* Primary blue color */
+            background-color:#0067ce; /* Primary blue color */
             color: white;
             text-align: center;
             margin: 50px 0 0 0;

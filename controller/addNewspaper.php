@@ -9,27 +9,41 @@ if ($_SESSION['user']['account_type'] == 'admin') {
         $name = trim($info['name']);
         $price = trim($info['price']);
 
-        // Server-side validation
-        if (empty($name) || empty($price)) {
-            echo "All fields are required.";
+        if (empty($name)) {
+            echo "Name is required.";
             exit;
         }
 
-        // Validate name: allow only letters and spaces
-        foreach (str_split($name) as $char) {
-            if (is_numeric($char)) {
-                echo "Invalid name. Numbers are not allowed.";
+        if (strlen($name) <= 4) {
+            echo "Name must be more than 4 characters.";
+            exit;
+        }
+
+        if (empty($price)) {
+            echo "Price is required.";
+            exit;
+        }
+
+       
+        for ($i = 0; $i < strlen($name); $i++) {
+            $char = $name[$i];
+            if (!(($char >= 'a' && $char <= 'z') || ($char >= 'A' && $char <= 'Z') || $char === ' ')) {
+                echo "Invalid name. Only letters and spaces are allowed.";
                 exit;
             }
         }
 
-        // Validate price: must be numeric and greater than 0
-        if (!is_numeric($price) || floatval($price) <= 0) {
-            echo "Invalid price. Enter a number greater than 0.";
+        if (!is_numeric($price)) {
+            echo "Invalid price. Enter a numeric value.";
             exit;
         }
 
-        // Add newspaper to the database
+        if (floatval($price) < 100) {
+            echo "Invalid price. Value must be greater than 99.";
+            exit;
+        }
+
+   
         $status = addNewspaper($name, $price);
         if ($status) {
             echo "success";
@@ -39,6 +53,6 @@ if ($_SESSION['user']['account_type'] == 'admin') {
     }
 } else {
     header('Location: ../view/home.php');
-    exit;
+    exit;
 }
 ?>

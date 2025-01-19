@@ -22,14 +22,14 @@ function renderTopBar()
             /* Styling for the top bar */
             .top-bar {
                 width: 100%;
-                background-color: #1c68f5; /* Primary blue color */
+                background-color:#0067ce; /* Primary blue color */
                 color: white;
                 padding: 10px 20px 10px 20px;
                 position: fixed;
                 top: 0;
                 left: 0;
                 z-index: 1000;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
                 display: flex;
                 justify-content: space-between;
                 align-items: center;

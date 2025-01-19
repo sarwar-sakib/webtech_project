@@ -24,7 +24,7 @@ function confirmSubmission() {
                     alert('Payment confirmed and ad submitted successfully!');
                     window.location.href = 'ad_list.php';
                 } else {
-                    alert('Failed to submit the ad. Please try again.');
+                    alert('Insufficient Balance!. Please add balance and try again.');
                 }
             }
         };

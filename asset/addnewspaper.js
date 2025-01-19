@@ -8,6 +8,12 @@ function validateName() {
         return false;
     }
 
+    if (name.trim().length <= 4) {
+        message.innerText = "Name must be more than 4 characters.";
+        message.style.color = "red";
+        return false;
+    }
+
     for (let char of name) {
         if (!isNaN(char) && char !== " ") {
             message.innerText = "Name cannot contain numbers or special characters.";
@@ -25,8 +31,8 @@ function validatePrice() {
     const price = document.getElementById("price").value;
     const message = document.getElementById("priceMessage");
 
-    if (price.trim() === "" || isNaN(price) || parseFloat(price) <= 0) {
-        message.innerText = "Please enter a valid price greater than 0.";
+    if (price.trim() === "" || isNaN(price) || parseFloat(price) < 100) {
+        message.innerText = "Please enter a valid price greater than 99.";
         message.style.color = "red";
         return false;
     }
