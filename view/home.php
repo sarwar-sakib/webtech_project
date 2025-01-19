@@ -55,8 +55,7 @@
             <a href="add-newspaper.php">Ad Newspaper</a> |
             <a href="newspaper-list.php">Newspapers</a> |
             <a href="view-feedback.php">View Feedback</a> |
-            <a href="../view/payoutHistory.php">Payout History</a> |
-            <a href="../view/changeTerms.php">change Terms</a> |
+            
 
         <?php } ?>
 
