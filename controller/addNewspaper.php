@@ -9,41 +9,43 @@ if ($_SESSION['user']['account_type'] == 'admin') {
         $name = trim($info['name']);
         $price = trim($info['price']);
 
+        
         if (empty($name)) {
             echo "Name is required.";
-            exit;
+            return; 
         }
 
         if (strlen($name) <= 4) {
             echo "Name must be more than 4 characters.";
-            exit;
-        }
-
-        if (empty($price)) {
-            echo "Price is required.";
-            exit;
+            return; 
         }
 
        
+        if (empty($price)) {
+            echo "Price is required.";
+            return; 
+        }
+
+      
         for ($i = 0; $i < strlen($name); $i++) {
             $char = $name[$i];
             if (!(($char >= 'a' && $char <= 'z') || ($char >= 'A' && $char <= 'Z') || $char === ' ')) {
                 echo "Invalid name. Only letters and spaces are allowed.";
-                exit;
+                return; 
             }
         }
 
         if (!is_numeric($price)) {
             echo "Invalid price. Enter a numeric value.";
-            exit;
+            return; 
         }
 
         if (floatval($price) < 100) {
             echo "Invalid price. Value must be greater than 99.";
-            exit;
+            return;
         }
 
-   
+       
         $status = addNewspaper($name, $price);
         if ($status) {
             echo "success";
@@ -53,6 +55,6 @@ if ($_SESSION['user']['account_type'] == 'admin') {
     }
 } else {
     header('Location: ../view/home.php');
-    exit;
+    exit; 
 }
 ?>

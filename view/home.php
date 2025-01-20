@@ -145,8 +145,8 @@ if ($_SESSION['user']['accepted_terms'] == '0') {
                 <a href="add-newspaper.php">Add Newspaper</a>
                 <a href="newspaper-list.php">Newspapers</a>
                 <a href="view-feedback.php">View Feedback</a>
-                <a href="../view/payoutHistory.php">Payout History</a> |
-                <a href="../view/changeTerms.php">change Terms</a> |
+                <a href="../view/payoutHistory.php">Payout History</a> 
+                <a href="../view/changeTerms.php">Change Terms</a> 
             <?php } elseif ($_SESSION['user']['account_type'] == 'advertiser') { ?>
                 <a href="newspaper-list.php">Newspapers</a>
                 <a href="../view/ad_list.php">Selected Ads</a>

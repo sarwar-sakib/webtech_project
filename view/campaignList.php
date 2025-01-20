@@ -14,6 +14,92 @@
 <html lang="en">
 <head>
     <title>Campaign List</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            text-align: center;
+        }
+        fieldset {
+            margin: 20px auto;
+            border: 1px solid #007bff;
+            width: 90%;
+            max-width: 1200px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        legend {
+            font-size: 20px;
+            color: #007bff;
+            padding: 0 10px;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            background-color: #fff;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #e9ecef;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .action-links {
+            margin-top: 20px;
+        }
+        .action-links a {
+            margin: 0 10px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body align="center">
     <fieldset>
@@ -43,7 +129,7 @@
         if($_SESSION['user']['account_type']!="admin") { ?>
         <a href="myCampaigns.php"> My Campaigns </a>
         <?php } ?>
-        <table border="1" cellspacing="0" align="center">
+        <table>
             <tr>
                 <th>Campaign ID</th>
                 <th>Campaign Name</th>
@@ -59,7 +145,7 @@
             </tr>
             <?php 
                 for($i=0; $i<count($campaigns); $i++) { ?>
-            <tr align="center">
+            <tr>
                 <td><?php echo $campaigns[$i]['campaign_id']; ?></td>
                 <td><?=$campaigns[$i]['campaign_name'] ?></td>
                 <td><?=$campaigns[$i]['campaign_domain'] ?></td>
@@ -103,9 +189,10 @@
             </tr>
             <?php } ?>
         </table>
-        <br>
-        <a href="home.php"> Back </a> |
-        <a href="../controller/logout.php"> logout </a>
+        <div class="action-links">
+            <a href="home.php"> Back </a> |
+            <a href="../controller/logout.php"> logout </a>
+        </div>
     </fieldset>
 </body>
 </html>
