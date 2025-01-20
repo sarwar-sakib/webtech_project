@@ -3,7 +3,7 @@ session_start();
 require_once('../model/userModel.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Decode JSON input
+
     $input = json_decode(file_get_contents('php://input'), true);
 
     if (!isset($_SESSION['update_id']) || empty($input['username']) || empty($input['email']) || empty($input['password'])) {
@@ -15,9 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($input['username']);
     $email = trim($input['email']);
     $password = trim($input['password']);
-    $accountType = 'advertiser'; // Default account type
+    $accountType = 'advertiser'; 
 
-    // Update user in the database
     $status = updateUser($updateId, $username, $email, $password, $accountType);
 
     if ($status) {

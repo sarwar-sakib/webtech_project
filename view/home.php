@@ -202,9 +202,10 @@ if ($_SESSION['user']['accepted_terms'] == '0') {
         </fieldset>
     </main>
     <div class="bottom-bar">
-        <p>&copy; 2025 AdVerse Studio</p>
+        <p><b>AdVerse Studio</b></p>
         <p><a href="about.html">About Us</a> | <a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
-        <p>contact@adverse.com | Helpline: +880 1712-345678 </p><br>
+        <p>contact@adverse.com | Helpline: +880 1712-345678 </p>
+        <p>&copy; 2025 AdVerse Studio</p>
        
 </body>
 </html>

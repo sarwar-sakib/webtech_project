@@ -5,11 +5,11 @@
     if (isset($_GET['id'])) {
         $adId = intval($_GET['id']);
         if (deleteAd($adId)) {
-            echo 'success'; // Respond with success if the ad was deleted
+            echo 'success'; 
         } else {
-            echo 'failure'; // Respond with failure if the ad couldn't be deleted
+            echo 'failure'; 
         }
     } else {
-        echo 'failure'; // Respond with failure if no id is passed
+        echo 'failure'; 
     }
 ?>

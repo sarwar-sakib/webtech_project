@@ -1,5 +1,4 @@
 function updateAd() {
-    // Clear all error messages
     document.querySelectorAll('.error-message').forEach(span => span.textContent = '');
 
     const adId = document.getElementById('ad_id').value;
@@ -12,7 +11,6 @@ function updateAd() {
 
     let isValid = true;
 
-    // Validate fields and show inline errors
     if (!publishDate) {
         document.getElementById('error-publish_date').textContent = 'Publication date is required.';
         isValid = false;
@@ -33,10 +31,9 @@ function updateAd() {
     }
 
     if (!isValid) {
-        return; // Stop execution if validation fails
+        return; 
     }
 
-    // Prepare FormData to include file and other fields
     const formData = new FormData();
     formData.append('ad_id', adId);
     formData.append('publish_date', publishDate);
@@ -46,7 +43,6 @@ function updateAd() {
     formData.append('price', price);
     if (adImage) formData.append('ad_image', adImage);
 
-    // AJAX Request
     const xhttp = new XMLHttpRequest();
     xhttp.open('POST', '../controller/update_ad.php', true);
 

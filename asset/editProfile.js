@@ -16,7 +16,6 @@ function validateUsername() {
 function validateEmail() {
 const emailField = document.getElementById('email');
 const emailError = document.getElementById('emailError');
-// Updated regex: Email should end with @ followed by a domain and a dot
 const emailFormat = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 if (!emailFormat.test(emailField.value)) {
@@ -42,11 +41,9 @@ function validatePassword() {
     }
 }
 
-// Function to handle AJAX form submission
 function submitForm(event) {
     event.preventDefault();
 
-    // Perform all validations
     if (!validateUsername() || !validateEmail() || !validatePassword()) {
         alert('Please fix the errors before submitting.');
         return;
@@ -56,7 +53,6 @@ function submitForm(event) {
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value.trim();
 
-    // Prepare data for AJAX (JSON format)
     const data = {
         username: username,
         email: email,

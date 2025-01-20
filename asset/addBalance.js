@@ -63,14 +63,12 @@ function validatePassword() {
 }
 
 function validateForm() {
-    // Call individual validation functions and check if all fields are valid
     return validatePhone() && validateAmount() && validatePassword();
 }
 
 function ajaxAddBalance(event) {
-    // Prevent form submission if validation fails
     if (!validateForm()) {
-        event.preventDefault(); // Prevent form submission if validation fails
+        event.preventDefault(); 
         return;
     }
 
@@ -95,9 +93,9 @@ function ajaxAddBalance(event) {
             let response = this.responseText.trim();
             if (response === "success") {
                 alert("Balance added successfully!");
-                window.location.href = "../view/home.php"; // Redirect after success
+                window.location.href = "../view/home.php"; 
             } else {
-                alert(response); // Show error message from server
+                alert(response); 
             }
         }
     };

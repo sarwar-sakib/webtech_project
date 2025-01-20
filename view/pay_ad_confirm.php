@@ -34,6 +34,8 @@ if (!$ad || $ad['user_id'] != $userId) {
     </script>
 </head>
 <body>
+    <main>
+    <?php includeTopBar(); ?>
     <h2>Confirm Payment for Ad</h2>
     <p><strong>Newspaper:</strong> <?= htmlspecialchars($ad['newspaper']); ?></p>
     <p><strong>Price:</strong> <?= htmlspecialchars($ad['price']); ?></p>
@@ -53,5 +55,7 @@ if (!$ad || $ad['user_id'] != $userId) {
         <button type="button" onclick="confirmSubmission()">Confirm Payment and Submit</button>
         <a href="ad_list.php">Cancel</a>
     </form>
+    </main>
+    <?php includeBottomBar(); ?>
 </body>
 </html>

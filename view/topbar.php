@@ -11,12 +11,10 @@ if (!isset($_SESSION['status'])) {
 // Function to render the top bar
 function renderTopBar()
 {
-    // Check if session variables are set
     if (isset($_SESSION['user'])) {
         $username = $_SESSION['user']['username'];
         $id = $_SESSION['user']['id'];
-        $balance = getUserBalance($id); // Assuming this function exists to get the balance
-
+        $balance = getUserBalance($id); 
         echo '
         <style>
             /* Styling for the top bar */

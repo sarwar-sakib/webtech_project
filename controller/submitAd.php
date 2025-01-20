@@ -20,11 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             die("Ad not found or unauthorized access.");
         }
 
-        // Proceed with payment processing logic (e.g., update ad status, user balance)
+        
         if (moveAdToSubmitted($adId, $userId)) {
-            echo 'success'; // Send success response for the AJAX call
+            echo 'success'; 
         } else {
-            echo 'failure'; // Send failure response for the AJAX call
+            echo 'failure'; 
         }
     } else {
         die("Ad ID is missing.");

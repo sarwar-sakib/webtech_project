@@ -24,22 +24,18 @@ $_SESSION['update_id'] = $_REQUEST['id'];
 <body>
     <h2>Edit User Profile</h2>
     <form id="updateForm" onsubmit="submitForm(event)">
-        <!-- Username -->
         Name: 
         <input type="text" id="username" name="username" value="<?= htmlspecialchars($user['username']) ?>" onkeyup="validateUsername()" />
         <span id="usernameError" style="color: red;"></span><br>
 
-        <!-- Email -->
         Email: 
         <input type="email" id="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" onkeyup="validateEmail()" />
         <span id="emailError" style="color: red;"></span><br>
 
-        <!-- Password -->
         Password: 
         <input type="password" id="password" name="password" value="<?= htmlspecialchars($user['password']) ?>" onkeyup="validatePassword()" />
         <span id="passwordError" style="color: red;"></span><br>
 
-        <!-- Submit button -->
         <button type="submit">Submit</button>
     </form>
     <br>

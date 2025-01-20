@@ -7,12 +7,10 @@ if (!isset($_SESSION['status'])) {
     header('location: login.html');
 }
 
-// Get user and newspaper details
 $username = $_SESSION['user']['username'];
 $id = $_SESSION['user']['id'];
-$balance = getUserBalance($id); // Assuming this function exists
+$balance = getUserBalance($id);
 
-// Get selected newspaper details from the query string
 $selected_newspaper = isset($_GET['newspaper']) ? $_GET['newspaper'] : '';
 $selected_price = isset($_GET['price']) ? $_GET['price'] : '';
 ?>

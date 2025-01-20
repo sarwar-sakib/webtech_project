@@ -3,12 +3,12 @@ session_start();
 require_once('../model/userModel.php');
 require_once('../model/adModel.php');
 
-header('Content-Type: application/json'); // Set content type to JSON
+header('Content-Type: application/json');
 
-$response = array('success' => false, 'message' => ''); // Default response
+$response = array('success' => false, 'message' => ''); 
 
-if (isset($_REQUEST['submit']) || $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
-    $userId = $_SESSION["user"]['id']; // Ensure this is set during login
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $userId = $_SESSION["user"]['id'];
     $newspaper = trim($_REQUEST['newspaper']);
     $price = trim($_REQUEST['price_ui']);
     $publishDate = trim($_REQUEST['publish_date']);
@@ -16,21 +16,17 @@ if (isset($_REQUEST['submit']) || $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpR
     $adDescription = trim($_REQUEST['ad_description']);
     $imageFile = $_FILES['ad_image'];
 
-    // Validate required fields
     if (empty($newspaper) || empty($price) || empty($publishDate) || empty($adType) || empty($adDescription)) {
         $response['message'] = "All fields except image are required.";
         echo json_encode($response);
         exit();
     }
 
-    // If Classified Display is selected, ensure the image file is provided
     if ($adType == "Classified Display" && empty($imageFile['name'])) {
         $response['message'] = "An image is required for Classified Display ads.";
         echo json_encode($response);
         exit();
     }
-
-    // Validate ad description (optional: check word count if required)
     $wordCount = str_word_count($adDescription);
     if ($wordCount > 40) {
         $response['message'] = "Ad description cannot exceed 40 words.";
@@ -38,7 +34,6 @@ if (isset($_REQUEST['submit']) || $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpR
         exit();
     }
 
-    // Handle image file upload (only if an image is selected for Classified Display)
     if (!empty($imageFile['name'])) {
         $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
         $imageExtension = strtolower(pathinfo($imageFile['name'], PATHINFO_EXTENSION));
@@ -49,7 +44,6 @@ if (isset($_REQUEST['submit']) || $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpR
             exit();
         }
 
-        // Handle file upload
         $uploadDir = '../asset/';
         $uploadFile = $uploadDir . basename($imageFile['name']);
 
@@ -59,11 +53,9 @@ if (isset($_REQUEST['submit']) || $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpR
             exit();
         }
     } else {
-        // If no image is selected and adType is not "Classified Display", set it to null or empty string.
         $uploadFile = null; 
     }
 
-    // Save ad details to the database
     $status = createAd($userId, $newspaper, $price, $publishDate, $adType, $adDescription, $uploadFile);
 
     if ($status) {
@@ -73,7 +65,6 @@ if (isset($_REQUEST['submit']) || $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpR
         echo "Failed to create the ad. Please try again.";
     }
 
-    // Send the JSON response back
     echo json_encode($response);
 }
 ?>
